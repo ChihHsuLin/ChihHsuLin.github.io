@@ -8,24 +8,24 @@ Author: Chih-Hsu Lin
 Summary: Useful tips of Jupyter Notebook
 ---
 Jupyter Notebook Shortcuts:
-`cmd + shift + p`(Mac) or `ctrl + shift + p`(Windows/Linux) Drop-down list of all shortcuts
+`cmd + shift + p`(Mac) or `ctrl + shift + p`(Windows/Linux) Drop-down list of all shortcuts  
 
 #### Editing mode (green border and little pencil on the up right corner)
-![editing mode](http://imgur.com/Vhe6cDk.png)
-`ctrl + shift + -` split cell by where the cursor is
-`shift + tab` display the usage and attribute of the function
-`[esc]` enter command mode
+![editing mode](http://imgur.com/Vhe6cDk.png)  
+`ctrl + shift + -` split cell by where the cursor is  
+`shift + tab` display the usage and attribute of the function  
+`[esc]` enter command mode  
   
   
 #### Command mode (blue shade)
 ![Command mode](http://imgur.com/b3Bxfls.png)
-`m` make the cell to Markdown
-`y` make the cell to Code
+`m` make the cell to Markdown  
+`y` make the cell to Code  
 
-`dd` delete cell
-`z` undo deletion or cut (only able to undo one step at maximum)
-`x` cut current cell
-`v` paste cell below
+`dd` delete cell  
+`z` undo deletion or cut (only able to undo one step at maximum)  
+`x` cut current cell  
+`v` paste cell below  
 
 
-Ref: https://www.dataquest.io/blog/jupyter-notebook-tips-tricks-shortcuts/
+Ref: [https://www.dataquest.io/blog/jupyter-notebook-tips-tricks-shortcuts/](https://www.dataquest.io/blog/jupyter-notebook-tips-tricks-shortcuts/)

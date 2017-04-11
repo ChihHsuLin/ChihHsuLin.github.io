@@ -9,14 +9,16 @@
 
   <title>Python optimization tips | lin4mation
 </title>
-  <link rel="canonical" href="/Python-optimization-tips.html">
+  <link rel="canonical" href="https://chihhsulin.github.io/Python-optimization-tips.html">
+
+  <link rel="alternate" type="application/atom+xml" href="https://chihhsulin.github.io/feeds/all.atom.xml" title="Full Atom Feed">
+  <link rel="alternate" type="application/atom+xml" href="https://chihhsulin.github.io/feeds/python.atom.xml" title="Categories Atom Feed">
 
 
-
-  <link rel="stylesheet" href="/theme/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/theme/css/font-awesome.min.css">
-  <link rel="stylesheet" href="/theme/css/pygments/default.min.css">
-  <link rel="stylesheet" href="/theme/css/style.css">
+  <link rel="stylesheet" href="https://chihhsulin.github.io/theme/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://chihhsulin.github.io/theme/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://chihhsulin.github.io/theme/css/pygments/default.min.css">
+  <link rel="stylesheet" href="https://chihhsulin.github.io/theme/css/style.css">
 
 
 <meta name="description" content="A few tips to optimize python">
@@ -42,12 +44,12 @@
     <div class="container">
       <div class="row">
         <div class="col-sm-4">
-          <a href="/">
-            <img class="img-fluid" src=/images/profile.jpg width=2000 height=250 alt="lin4mation">
+          <a href="https://chihhsulin.github.io/">
+            <img class="img-fluid" src=https://chihhsulin.github.io/images/profile.jpg width=2000 height=250 alt="lin4mation">
           </a>
         </div>
         <div class="col-sm-8">
-          <h1 class="title"><a href="/">lin4mation</a></h1>
+          <h1 class="title"><a href="https://chihhsulin.github.io/">lin4mation</a></h1>
           <p class="text-muted">✨ Information, Estimation, Automation, Confirmation✨</p>
           <ul class="list-inline">
             <li class="list-inline-item"><a href="#" target="_blank">About</a></li>
@@ -74,64 +76,65 @@
       </li>
       <li class="list-inline-item">
         <i class="fa fa-folder-open-o"></i>
-        <a href="/category/python.html">Python</a>
+        <a href="https://chihhsulin.github.io/category/python.html">Python</a>
       </li>
       <li class="list-inline-item">
         <i class="fa fa-files-o"></i>
-        <a href="/tag/python.html">#Python</a>      </li>
+        <a href="https://chihhsulin.github.io/tag/python.html">#Python</a>      </li>
     </ul>
   </header>
   <div class="content">
     <p>Here I listed and timed a few tips with <code>%timeit</code> function in Jupyter notebook (iPython notebook)</p>
 <h2>1. <a href="http://treyhunner.com/2015/12/python-list-comprehensions-now-in-color/">List comprehension</a> and <a href="https://www.python.org/dev/peps/pep-0274/">dictionary comprehension</a> is faster than for loop</h2>
 <h3>For loop</h3>
-<p><pre class="prettyprint">
-a=[1,2,3]
-b=[]
-%timeit for i in a: b.append(i)
-1000000 loops, best of 3: 733 ns per loop
-</pre></p>
+<div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">b</span><span class="o">=</span><span class="p">[]</span>
+<span class="nf">%timeit</span> <span class="k">for</span> <span class="n">i</span> <span class="n">in</span> <span class="nl">a</span><span class="p">:</span> <span class="n">b</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="mi">1000000</span> <span class="n">loops</span><span class="p">,</span> <span class="n">best</span> <span class="n">of</span> <span class="mi">3</span><span class="o">:</span> <span class="mi">733</span> <span class="n">ns</span> <span class="n">per</span> <span class="n">loop</span>
+</pre></div>
+
+
 <h3>List comprehension (1.4x faster)</h3>
-<p><pre class="prettyprint">
-a=[1,2,3]
-%timeit b=[i for i in a]
-1000000 loops, best of 3: 515 ns per loop
-</pre></p>
+<div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="nf">%timeit</span> <span class="n">b</span><span class="o">=</span><span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="n">in</span> <span class="n">a</span><span class="p">]</span>
+<span class="mi">1000000</span> <span class="n">loops</span><span class="p">,</span> <span class="n">best</span> <span class="n">of</span> <span class="mi">3</span><span class="o">:</span> <span class="mi">515</span> <span class="n">ns</span> <span class="n">per</span> <span class="n">loop</span>
+</pre></div>
+
+
 <h2>2. Iterating/indexing <code>list</code> or <code>set</code> is faster than <code>numpy.array</code></h2>
 <h3>Iterating/indexing over a numpy array</h3>
-<p><pre class="prettyprint">
-import numpy as np
-a = np.array([1,2,3])
-%timeit b=[i for i in a]
-1000000 loops, best of 3: 1.49 µs per loop
-%timeit a[0]
-1000000 loops, best of 3: 186 ns per loop
-</pre></p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="kp">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+<span class="o">%</span><span class="n">timeit</span> <span class="n">b</span><span class="o">=</span><span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">a</span><span class="p">]</span>
+<span class="mi">1000000</span> <span class="n">loops</span><span class="p">,</span> <span class="n">best</span> <span class="n">of</span> <span class="mi">3</span><span class="p">:</span> <span class="mf">1.49</span> <span class="err">µ</span><span class="n">s</span> <span class="n">per</span> <span class="n">loop</span>
+<span class="o">%</span><span class="n">timeit</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="mi">1000000</span> <span class="n">loops</span><span class="p">,</span> <span class="n">best</span> <span class="n">of</span> <span class="mi">3</span><span class="p">:</span> <span class="mi">186</span> <span class="n">ns</span> <span class="n">per</span> <span class="n">loop</span>
+</pre></div>
+
+
 <h3>Iterating/indexing over a list (2.8x/1.6x faster)</h3>
-<p><pre class="prettyprint">
-a=[1,2,3]
-%timeit b=[i for i in a]
-1000000 loops, best of 3: 523 ns per loop
-%timeit a[0]
-10000000 loops, best of 3: 117 ns per loop
-</pre></p>
+<div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="nf">%timeit</span> <span class="n">b</span><span class="o">=</span><span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="n">in</span> <span class="n">a</span><span class="p">]</span>
+<span class="mi">1000000</span> <span class="n">loops</span><span class="p">,</span> <span class="n">best</span> <span class="n">of</span> <span class="mi">3</span><span class="o">:</span> <span class="mi">523</span> <span class="n">ns</span> <span class="n">per</span> <span class="n">loop</span>
+<span class="nf">%timeit</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="mi">10000000</span> <span class="n">loops</span><span class="p">,</span> <span class="n">best</span> <span class="n">of</span> <span class="mi">3</span><span class="o">:</span> <span class="mi">117</span> <span class="n">ns</span> <span class="n">per</span> <span class="n">loop</span>
+</pre></div>
+
+
 <h2>3. To get unique element, <code>set</code> is faster than <code>numpy.unique</code></h2>
-<h3>numpy.unique</h3>
-<p><pre class="prettyprint">
-import numpy as np
-a=[1,2,3]*10000
-%timeit b=np.unique(a)
-1000 loops, best of 3: 1.55 ms per loop
-</pre></p>
-<h3>set (2.9x faster)</h3>
-<p><pre class="prettyprint">
-a=[1,2,3]*10000
-%timeit b=list(set(a))
-1000 loops, best of 3: 535 µs per loop
-</pre></p>
-<blockquote>
-<p>Written with <a href="https://stackedit.io/">StackEdit</a>.</p>
-</blockquote>
+<h3><code>numpy.unique</code></h3>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="n">a</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span><span class="o">*</span><span class="mi">10000</span>
+<span class="o">%</span><span class="n">timeit</span> <span class="n">b</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="kp">unique</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="mi">1000</span> <span class="n">loops</span><span class="p">,</span> <span class="n">best</span> <span class="n">of</span> <span class="mi">3</span><span class="p">:</span> <span class="mf">1.55</span> <span class="n">ms</span> <span class="n">per</span> <span class="n">loop</span>
+</pre></div>
+
+
+<h3><code>set</code> (2.9x faster)</h3>
+<div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span><span class="o">*</span><span class="mi">10000</span>
+<span class="nf">%timeit</span> <span class="n">b</span><span class="o">=</span><span class="n">list</span><span class="p">(</span><span class="n">set</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+<span class="mi">1000</span> <span class="n">loops</span><span class="p">,</span> <span class="n">best</span> <span class="n">of</span> <span class="mi">3</span><span class="o">:</span> <span class="mi">535</span> <span class="err">µ</span><span class="n">s</span> <span class="n">per</span> <span class="n">loop</span>
+</pre></div>
   </div>
 </article>
     </div>
@@ -141,9 +144,9 @@ a=[1,2,3]*10000
     <div class="container">
       <div class="row">
        <ul class="col-sm-6 list-inline">
-          <li class="list-inline-item"><a href="/archives.html">Archives</a></li>
-          <li class="list-inline-item"><a href="/categories.html">Categories</a></li>
-          <li class="list-inline-item"><a href="/tags.html">Tags</a></li>
+          <li class="list-inline-item"><a href="https://chihhsulin.github.io/archives.html">Archives</a></li>
+          <li class="list-inline-item"><a href="https://chihhsulin.github.io/categories.html">Categories</a></li>
+          <li class="list-inline-item"><a href="https://chihhsulin.github.io/tags.html">Tags</a></li>
         </ul>
         <p class="col-sm-6 text-sm-right text-muted">
           Generated by <a href="https://github.com/getpelican/pelican" target="_blank">Pelican</a> / <a href="https://github.com/nairobilug/pelican-alchemy" target="_blank">&#x2728;</a>
