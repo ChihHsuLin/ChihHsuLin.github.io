@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags always come first -->
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Python optimization tips | lin4mation
+</title>
+  <link rel="canonical" href="/Python-optimization-tips.html">
+
+
+
+  <link rel="stylesheet" href="/theme/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/theme/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/theme/css/pygments/default.min.css">
+  <link rel="stylesheet" href="/theme/css/style.css">
+
+
+<meta name="description" content="A few tips to optimize python">
+<script>
+  (function(i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r;
+    i[r] = i[r] || function() {
+      (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date();
+    a = s.createElement(o);
+    a.async = 1;
+    a.src = g;
+    m = s.getElementsByTagName(o)[0];
+    m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+  ga('create', 'UA-97193390-1', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4">
+          <a href="/">
+            <img class="img-fluid" src=/images/profile.jpg width=2000 height=250 alt="lin4mation">
+          </a>
+        </div>
+        <div class="col-sm-8">
+          <h1 class="title"><a href="/">lin4mation</a></h1>
+          <p class="text-muted">✨ Information, Estimation, Automation, Confirmation✨</p>
+          <ul class="list-inline">
+            <li class="list-inline-item"><a href="#" target="_blank">About</a></li>
+            <li class=" list-inline-item text-muted">|</li>
+            <li class="list-inline-item"><a class="fa fa-github-square" href="https://github.com/ChihHsuLin" target="_blank"></a></li>
+            <li class="list-inline-item"><a class="fa fa-linkedin" href="https://www.linkedin.com/in/chihhsulin/" target="_blank"></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="main">
+    <div class="container">
+      <h1>Python optimization tips
+</h1>
+      <hr>
+<article class="article">
+  <header>
+    <ul class="list-inline">
+      <li class="list-inline-item text-muted" title="2017-04-07T09:50:00-05:00">
+        <i class="fa fa-clock-o"></i>
+        Fri 07 April 2017
+      </li>
+      <li class="list-inline-item">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/category/python.html">Python</a>
+      </li>
+      <li class="list-inline-item">
+        <i class="fa fa-files-o"></i>
+        <a href="/tag/python.html">#Python</a>      </li>
+    </ul>
+  </header>
+  <div class="content">
+    <p>Here I listed and timed a few tips with <code>%timeit</code> function in Jupyter notebook (iPython notebook)</p>
+<h2>1. <a href="http://treyhunner.com/2015/12/python-list-comprehensions-now-in-color/">List comprehension</a> and <a href="https://www.python.org/dev/peps/pep-0274/">dictionary comprehension</a> is faster than for loop</h2>
+<h3>For loop</h3>
+<p><pre class="prettyprint">
+a=[1,2,3]
+b=[]
+%timeit for i in a: b.append(i)
+1000000 loops, best of 3: 733 ns per loop
+</pre></p>
+<h3>List comprehension (1.4x faster)</h3>
+<p><pre class="prettyprint">
+a=[1,2,3]
+%timeit b=[i for i in a]
+1000000 loops, best of 3: 515 ns per loop
+</pre></p>
+<h2>2. Iterating/indexing <code>list</code> or <code>set</code> is faster than <code>numpy.array</code></h2>
+<h3>Iterating/indexing over a numpy array</h3>
+<p><pre class="prettyprint">
+import numpy as np
+a = np.array([1,2,3])
+%timeit b=[i for i in a]
+1000000 loops, best of 3: 1.49 µs per loop
+%timeit a[0]
+1000000 loops, best of 3: 186 ns per loop
+</pre></p>
+<h3>Iterating/indexing over a list (2.8x/1.6x faster)</h3>
+<p><pre class="prettyprint">
+a=[1,2,3]
+%timeit b=[i for i in a]
+1000000 loops, best of 3: 523 ns per loop
+%timeit a[0]
+10000000 loops, best of 3: 117 ns per loop
+</pre></p>
+<h2>3. To get unique element, <code>set</code> is faster than <code>numpy.unique</code></h2>
+<h3>numpy.unique</h3>
+<p><pre class="prettyprint">
+import numpy as np
+a=[1,2,3]*10000
+%timeit b=np.unique(a)
+1000 loops, best of 3: 1.55 ms per loop
+</pre></p>
+<h3>set (2.9x faster)</h3>
+<p><pre class="prettyprint">
+a=[1,2,3]*10000
+%timeit b=list(set(a))
+1000 loops, best of 3: 535 µs per loop
+</pre></p>
+<blockquote>
+<p>Written with <a href="https://stackedit.io/">StackEdit</a>.</p>
+</blockquote>
+  </div>
+</article>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+       <ul class="col-sm-6 list-inline">
+          <li class="list-inline-item"><a href="/archives.html">Archives</a></li>
+          <li class="list-inline-item"><a href="/categories.html">Categories</a></li>
+          <li class="list-inline-item"><a href="/tags.html">Tags</a></li>
+        </ul>
+        <p class="col-sm-6 text-sm-right text-muted">
+          Generated by <a href="https://github.com/getpelican/pelican" target="_blank">Pelican</a> / <a href="https://github.com/nairobilug/pelican-alchemy" target="_blank">&#x2728;</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>
