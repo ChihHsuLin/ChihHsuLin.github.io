@@ -1,3 +1,24 @@
 [submodule "plugins/ipynb"]
 	path = plugins/ipynb
 	url = git://github.com/danielfrg/pelican-ipynb.git
+[submodule "pelican-free-agent"]
+	path = pelican-free-agent
+	url = https://github.com/aroaminggeek/pelican-free-agent.git
+[submodule "themes/pelican-free-agent"]
+	path = themes/pelican-free-agent
+	url = https://github.com/aroaminggeek/pelican-free-agent.git
+[submodule "themes/Flex"]
+	path = themes/Flex
+	url = https://github.com/alexandrevicenzi/Flex.git
+[submodule "themes/pelican-clean-blog"]
+	path = themes/pelican-clean-blog
+	url = https://github.com/gilsondev/pelican-clean-blog.git
+[submodule "themes/pure"]
+	path = themes/pure
+	url = https://github.com/PurePelicanTheme/pure.git
+[submodule "themes/pelican-chameleon"]
+	path = themes/pelican-chameleon
+	url = https://github.com/yuex/pelican-chameleon.git
+[submodule "themes/pelican-alchemy"]
+	path = themes/pelican-alchemy
+	url = https://github.com/nairobilug/pelican-alchemy
