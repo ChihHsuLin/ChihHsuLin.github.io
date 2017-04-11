@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>lin4mation</title><link href="https://chihhsulin.github.io/" rel="alternate"></link><link href="https://chihhsulin.github.io/feeds/machine-learning.atom.xml" rel="self"></link><id>https://chihhsulin.github.io/</id><updated>2017-04-03T09:50:00-05:00</updated><entry><title>Machine learning materials</title><link href="https://chihhsulin.github.io/machine-learning-materials.html" rel="alternate"></link><published>2017-04-03T09:50:00-05:00</published><updated>2017-04-03T09:50:00-05:00</updated><author><name>Chih-Hsu Lin</name></author><id>tag:chihhsulin.github.io,2017-04-03:machine-learning-materials.html</id><summary type="html">&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;For the beginner:
+&lt;a href="https://see.stanford.edu/materials/aimlcs229/ML-advice.pdf"&gt;Advice for applyingMachine Learning&lt;/a&gt; (Andrew Ng)&lt;br /&gt;
+&lt;a href="https://jmetzen.github.io/2015-01-29/ml_advice.html"&gt;Related blog&lt;/a&gt; (Jan Hendrik Metzen): Trying to go through Advice for applyingMachine Learning using Python IPython notebook.  &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;How to choose your model?&lt;br /&gt;
+&lt;a href="http://scikit-learn.org/stable/tutorial/machine_learning_map/"&gt;Python sklearn&lt;/a&gt;&lt;br /&gt;
+&lt;a href="http://dlib.net/ml_guide.svg"&gt;C++&lt;/a&gt;  &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Review of recent Neural network models&lt;br /&gt;
+&lt;a href="http://cs231n.github.io/convolutional-networks/"&gt;Convolutional Neural Net&lt;/a&gt; (Andrej Karpathy )&lt;br /&gt;
+&lt;a href="https://adeshpande3.github.io/adeshpande3.github.io/The-9-Deep-Learning-Papers-You-Need-To-Know-About.html"&gt;The-9-Deep-Learning-Papers-You-Need-To-Know-About&lt;/a&gt; (Adit Deshpande)  &lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;</summary><category term="Machine Learning"></category><category term="Data Science"></category></entry></feed>
